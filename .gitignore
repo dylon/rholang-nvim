@@ -1,0 +1,14 @@
+# Ignore everything by default:
+*
+
+# Enable file-pattern inclusions:
+!*/
+
+# Include specific file patterns:
+!/ftplugin/*.lua
+!/.gitignore
+!/LICENSE.txt
+!/lua/*.lua
+!/README.md
+!/syntax/*.lua
+!/syntax/*.vim
