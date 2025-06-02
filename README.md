@@ -17,6 +17,7 @@ diagnostics via an LSP-based language server
 
 ## Installation
 1. Install the extension with your favorite extension for Neovim from this repository.
+    - For example, with [vim-plug](https://github.com/junegunn/vim-plug): `Plug 'F1R3FLY-io/rholang-nvim'`
 2. Ensure the Rholang LSP server binary (`rholang-language-server`) is in the
    extension’s `$PATH`.
 3. Start the `rnode` server: `rnode run --standalone`.
