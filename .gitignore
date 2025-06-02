@@ -7,7 +7,7 @@
 # Include specific file patterns:
 !/ftplugin/*.lua
 !/.gitignore
-!/LICENSE.txt
+!/LICENSE.TXT
 !/lua/*.lua
 !/README.md
 !/syntax/*.lua
