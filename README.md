@@ -24,3 +24,7 @@ diagnostics via an LSP-based language server
 ## Usage
 - Open a `.rho` file in VS Code.
 - Edit the file to see diagnostics for Rholang errors.
+
+## Recommended extensions
+- [trouble.nvim](https://github.com/folke/trouble.nvim)
+- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
