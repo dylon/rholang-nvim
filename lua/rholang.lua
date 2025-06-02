@@ -10,15 +10,35 @@ function M.setup()
 
   -- LSP configuration
   vim.api.nvim_create_autocmd('FileType', {
-    pattern = {'*.rho'},
+    pattern = 'rholang',
     callback = function()
-      local root_dir = vim.fs.dirname(vim.fs.find({ '.git', 'rholang.toml' }, { upward = true })[1] or '.')
-      local client = vim.lsp.start({
+      local root_dir = vim.fs.dirname(
+        vim.fs.find({ '.git', 'rholang.toml' }, { upward = true })[1] or '.'
+      )
+      local client_id = vim.lsp.start({
         name = 'rholang',
-        cmd = { 'rholang-language-server' },
+        cmd = {
+          'rholang-language-server',
+          '--no-color',
+          '--stdio',
+          '--log-level', 'debug',
+        },
         root_dir = root_dir,
+        on_error = function(err)
+          vim.notify('LSP error: ' .. vim.inspect(err), vim.log.levels.ERROR)
+        end,
       })
-      vim.lsp.buf_attach_client(0, client)
+      if client_id then
+        vim.notify(
+          'LSP client for rholang-language-server started with ID: ' .. client_id,
+          vim.log.levels.DEBUG
+        )
+      else
+        vim.notify(
+          'Failed to start rholang-language-server',
+          vim.log.levels.ERROR
+        )
+      end
     end,
   })
 end
