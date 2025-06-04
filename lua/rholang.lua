@@ -22,6 +22,7 @@ function M.setup()
           '--no-color',
           '--stdio',
           '--log-level', 'debug',
+          '--client-process-id', tostring(vim.fn.getpid()),
         },
         root_dir = root_dir,
         on_error = function(err)
