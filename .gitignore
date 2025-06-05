@@ -5,10 +5,14 @@
 !*/
 
 # Include specific file patterns:
+!/build.sh
 !/ftplugin/*.lua
 !/.gitignore
+!/grammar.js
 !/LICENSE.TXT
-!/lua/*.lua
+!/lua/**/*.lua
+!/Makefile
+!/queries/rholang/*.scm
 !/README.md
-!/syntax/*.lua
 !/syntax/*.vim
+!/tree-sitter.json

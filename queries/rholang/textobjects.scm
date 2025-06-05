@@ -1,0 +1,10 @@
+(method) @function.outer
+(contract) @class.outer
+(var) @parameter.outer
+(block) @block.outer
+(input) @block.outer
+(match) @block.outer
+(choice) @block.outer
+(new) @block.outer
+(string_literal) @string.outer
+(uri_literal) @string.outer
