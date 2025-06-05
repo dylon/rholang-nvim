@@ -4,14 +4,29 @@ local M = {}
 function M.setup()
   -- Set filetype for .rho files
   vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
-    pattern = {'*.rho'},
+    pattern = { '*.rho' },
     command = 'setfiletype rholang',
   })
 
-  -- LSP configuration
+  -- Enable Tree-sitter for Rholang
   vim.api.nvim_create_autocmd('FileType', {
     pattern = 'rholang',
     callback = function()
+      -- Ensure Tree-sitter parser is enabled
+      local ok, ts = pcall(require, 'nvim-treesitter.configs')
+      if ok then
+        ts.setup {
+          ensure_installed = { 'rholang' }, -- Ensure parser is installed
+          highlight = {
+            enable = true, -- Enable Tree-sitter highlighting
+            additional_vim_regex_highlighting = false, -- Disable legacy regex highlighting
+          },
+        }
+      else
+        vim.notify('nvim-treesitter not installed, falling back to legacy syntax', vim.log.levels.WARN)
+      end
+
+      -- LSP configuration
       local root_dir = vim.fs.dirname(
         vim.fs.find({ '.git', 'rholang.toml' }, { upward = true })[1] or '.'
       )

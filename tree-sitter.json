@@ -1,0 +1,40 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "rholang",
+      "camelcase": "Rholang",
+      "title": "Rholang",
+      "scope": "source.rholang",
+      "file-types": [
+        "rho"
+      ],
+      "injection-regex": "^rholang$",
+      "class-name": "TreeSitterRholang"
+    }
+  ],
+  "metadata": {
+    "version": "0.0.3",
+    "license": "SSL",
+    "description": "Rholang is a concurrent programming language, with a focus on message-passing and formally modeled by the ρ-calculus, a reflective, higher-order extension of the π-calculus. It is designed to be used to implement protocols and \"smart contracts\" on a general-purpose blockchain, but could be used in other settings as well.",
+    "authors": [
+      {
+        "name": "Dylon Edwards",
+        "email": "dylon@vinarytree.io",
+        "url": "https://github.com/dylon"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/F1R3FLY-io/f1r3fly/"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true,
+    "zig": false
+  }
+}
